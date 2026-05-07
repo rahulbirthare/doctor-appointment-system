@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Appointments - MediBook Pro</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --primary-light: #3b82f6;
+            --secondary: #10b981;
+            --accent: #8b5cf6;
+            --light: #f8fafc;
+            --dark: #1e293b;
+            --gray: #64748b;
+            --danger: #ef4444;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+            --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.12);
+            --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 50%, #f8fafc 100%);
+            color: var(--dark);
+            min-height: 100vh;
+        }
+
+        /* Navigation */
+        .main-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 20px 40px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-decoration: none;
+        }
+
+        .nav-logo-icon {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: white;
+            width: 45px;
+            height: 45px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+        }
+
+        .nav-logo-text h2 {
+            font-size: 22px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 800;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .logout-btn {
+            background: #fee2e2;
+            color: var(--danger);
+            padding: 10px 20px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .logout-btn:hover {
+            background: var(--danger);
+            color: white;
+        }
+
+        /* Content Area */
+        .content-section {
+            padding: 120px 40px 60px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .page-header {
+            margin-bottom: 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            animation: fadeInDown 0.8s ease-out;
+        }
+
+        .page-title h1 {
+            font-size: 36px;
+            font-weight: 800;
+            color: var(--dark);
+            margin-bottom: 10px;
+        }
+
+        .page-title p {
+            color: var(--gray);
+            font-size: 16px;
+        }
+
+        /* Appointment Cards/Table */
+        .appointments-container {
+            background: white;
+            border-radius: 24px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+            animation: fadeInUp 0.8s ease-out;
+            overflow: hidden;
+        }
+
+        .table-responsive {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+        }
+
+        th {
+            padding: 20px;
+            background: #f8fafc;
+            color: var(--gray);
+            font-weight: 600;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        td {
+            padding: 20px;
+            border-bottom: 1px solid #f1f5f9;
+            font-size: 15px;
+            vertical-align: middle;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        .doctor-cell {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .doctor-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(37, 99, 235, 0.1);
+            color: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+        }
+
+        .status-badge {
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: capitalize;
+        }
+
+        .status-confirmed { background: rgba(16, 185, 129, 0.1); color: var(--success); }
+        .status-pending { background: rgba(245, 158, 11, 0.1); color: var(--warning); }
+        .status-cancelled { background: rgba(239, 68, 68, 0.1); color: var(--danger); }
+        .status-completed { background: rgba(37, 99, 235, 0.1); color: var(--primary); }
+
+        .action-btn {
+            padding: 8px 16px;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 13px;
+            transition: var(--transition);
+        }
+
+        .cancel-btn {
+            background: #fee2e2;
+            color: var(--danger);
+        }
+
+        .cancel-btn:hover:not(:disabled) {
+            background: var(--danger);
+            color: white;
+        }
+
+        .cancel-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        /* Loading & Empty States */
+        .loading-state, .empty-state {
+            text-align: center;
+            padding: 60px;
+        }
+
+        .loading-icon {
+            font-size: 40px;
+            color: var(--primary);
+            margin-bottom: 20px;
+            animation: spin 1s infinite linear;
+        }
+
+        .empty-icon {
+            font-size: 60px;
+            color: #cbd5e1;
+            margin-bottom: 20px;
+        }
+
+        @keyframes spin {
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Bubbles */
+        .bg-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            overflow: hidden;
+        }
+
+        .bubble {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(37, 99, 235, 0.05);
+            animation: float 20s infinite linear;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 0.3; }
+            90% { opacity: 0.3; }
+            100% { transform: translateY(-100px) rotate(720deg); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-animation" id="bgAnimation"></div>
+
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <div class="nav-logo-icon"><i class="fas fa-heartbeat"></i></div>
+                <div class="nav-logo-text"><h2>MediBook Pro</h2></div>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="doctors.html">Find Doctors</a></li>
+                <li><a href="#" class="logout-btn" onclick="logout()">Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="content-section">
+        <div class="page-header">
+            <div class="page-title">
+                <h1>My Appointments</h1>
+                <p id="welcomeUser">Viewing appointments for your account</p>
+            </div>
+            <a href="index.html#booking-system" class="btn-primary" style="text-decoration: none; padding: 12px 24px; font-size: 15px;">
+                <i class="fas fa-plus"></i> New Booking
+            </a>
+        </div>
+
+        <div class="appointments-container" id="appointmentsWrapper">
+            <div class="loading-state">
+                <i class="fas fa-circle-notch loading-icon"></i>
+                <p>Fetching your appointments...</p>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        const API_BASE_URL = '/api';
+
+        function createBubbles() {
+            const container = document.getElementById('bgAnimation');
+            for (let i = 0; i < 15; i++) {
+                const bubble = document.createElement('div');
+                bubble.className = 'bubble';
+                const size = Math.random() * 100 + 50;
+                bubble.style.width = `${size}px`;
+                bubble.style.height = `${size}px`;
+                bubble.style.left = `${Math.random() * 100}%`;
+                bubble.style.animationDuration = `${Math.random() * 10 + 10}s`;
+                bubble.style.animationDelay = `${Math.random() * 5}s`;
+                container.appendChild(bubble);
+            }
+        }
+
+        async function fetchAppointments() {
+            const token = localStorage.getItem('token');
+            const userStr = localStorage.getItem('user');
+            
+            if (!token || !userStr) {
+                window.location.href = 'login.html';
+                return;
+            }
+
+            const user = JSON.parse(userStr);
+            document.getElementById('welcomeUser').innerText = `Viewing appointments for ${user.email}`;
+
+            try {
+                const response = await fetch(`${API_BASE_URL}/appointments/user`, {
+                    headers: {
+                        'Authorization': `Bearer ${token}`
+                    }
+                });
+                const data = await response.json();
+
+                if (data.success) {
+                    renderAppointments(data.appointments);
+                } else {
+                    showError(data.message);
+                }
+            } catch (error) {
+                showError("Could not connect to the server.");
+            }
+        }
+
+        function renderAppointments(appointments) {
+            const wrapper = document.getElementById('appointmentsWrapper');
+            
+            if (!appointments || appointments.length === 0) {
+                wrapper.innerHTML = `
+                    <div class="empty-state">
+                        <i class="fas fa-calendar-times empty-icon"></i>
+                        <h3>No Appointments Found</h3>
+                        <p>You haven't booked any appointments yet.</p>
+                        <br>
+                        <a href="index.html#booking-system" class="btn-primary" style="text-decoration: none;">Book Your First Appointment</a>
+                    </div>
+                `;
+                return;
+            }
+
+            let html = `
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Doctor</th>
+                                <th>Date</th>
+                                <th>Time</th>
+                                <th>Status</th>
+                                <th>Payment ID</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+            `;
+
+            appointments.forEach(app => {
+                const date = new Date(app.appt_date).toLocaleDateString();
+                const isCancellable = app.status === 'pending' || app.status === 'confirmed';
+                
+                html += `
+                    <tr>
+                        <td>
+                            <div class="doctor-cell">
+                                <div class="doctor-icon"><i class="fas fa-user-md"></i></div>
+                                <div>
+                                    <div style="font-weight: 700;">${app.doctor || 'General Practitioner'}</div>
+                                    <div style="font-size: 12px; color: var(--gray);">MediBook Verified</div>
+                                </div>
+                            </div>
+                        </td>
+                        <td style="font-weight: 600;">${date}</td>
+                        <td style="font-weight: 600;">${app.appt_time}</td>
+                        <td>
+                            <span class="status-badge status-${app.status}">${app.status}</span>
+                        </td>
+                        <td style="font-family: monospace; font-size: 12px;">${app.paymentId || 'N/A'}</td>
+                        <td>
+                            <button onclick="cancelAppointment(${app.id})" class="action-btn cancel-btn" ${!isCancellable ? 'disabled' : ''}>
+                                ${app.status === 'cancelled' ? 'Cancelled' : 'Cancel'}
+                            </button>
+                        </td>
+                    </tr>
+                `;
+            });
+
+            html += `
+                        </tbody>
+                    </table>
+                </div>
+            `;
+            wrapper.innerHTML = html;
+        }
+
+        async function cancelAppointment(id) {
+            if (!confirm("Are you sure you want to cancel this appointment?")) return;
+
+            const token = localStorage.getItem('token');
+            try {
+                const response = await fetch(`${API_BASE_URL}/appointments/${id}/cancel`, {
+                    method: 'PUT',
+                    headers: {
+                        'Authorization': `Bearer ${token}`
+                    }
+                });
+                const data = await response.json();
+                if (data.success) {
+                    alert("Appointment cancelled successfully.");
+                    fetchAppointments();
+                } else {
+                    alert(data.message);
+                }
+            } catch (error) {
+                alert("Error cancelling appointment.");
+            }
+        }
+
+        function showError(msg) {
+            document.getElementById('appointmentsWrapper').innerHTML = `
+                <div class="empty-state" style="color: var(--danger);">
+                    <i class="fas fa-exclamation-triangle empty-icon"></i>
+                    <h3>Error</h3>
+                    <p>${msg}</p>
+                </div>
+            `;
+        }
+
+        function logout() {
+            localStorage.removeItem('token');
+            localStorage.removeItem('user');
+            window.location.href = 'login.html';
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            createBubbles();
+            fetchAppointments();
+        });
+    </script>
+</body>
+</html>

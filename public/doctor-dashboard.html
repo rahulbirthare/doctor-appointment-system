@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Dashboard - MediBook Pro</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary: #10b981;
+            --accent: #8b5cf6;
+            --dark: #0f172a;
+            --light: #f8fafc;
+            --gray: #64748b;
+            --white: #ffffff;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        body {
+            background-color: #f1f5f9;
+            font-family: 'Inter', sans-serif;
+            color: var(--dark);
+            margin: 0;
+            overflow-x: hidden;
+        }
+
+        .sidebar {
+            background: var(--dark);
+            color: white;
+            height: 100vh;
+            position: fixed;
+            width: 280px;
+            padding: 30px 20px;
+            z-index: 1000;
+        }
+
+        .sidebar .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 0 15px 35px 15px;
+            margin-bottom: 20px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .logo-icon {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            width: 45px;
+            height: 45px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+        }
+
+        .sidebar a {
+            color: #94a3b8;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 14px 20px;
+            border-radius: 14px;
+            margin-bottom: 10px;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .sidebar a:hover, .sidebar a.active {
+            background: var(--primary);
+            color: white;
+        }
+
+        .main-content {
+            margin-left: 280px;
+            padding: 40px;
+        }
+
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+            background: white;
+            padding: 25px 35px;
+            border-radius: 24px;
+            box-shadow: var(--shadow);
+        }
+
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .stat-card {
+            background: white;
+            border-radius: 24px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .stat-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: white;
+        }
+
+        .content-card {
+            background: white;
+            border-radius: 28px;
+            padding: 35px;
+            box-shadow: var(--shadow);
+        }
+
+        .table thead th {
+            background: #f8fafc;
+            padding: 15px 20px;
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--gray);
+            text-transform: uppercase;
+        }
+
+        .table tbody td {
+            padding: 20px;
+            vertical-align: middle;
+            border-bottom: 1px solid #f1f5f9;
+        }
+
+        .badge-status {
+            padding: 6px 12px;
+            border-radius: 100px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .badge-pending { background: #fef9c3; color: #854d0e; }
+        .badge-confirmed { background: #dcfce7; color: #166534; }
+        .badge-completed { background: #dbeafe; color: #1e40af; }
+        .badge-cancelled { background: #fee2e2; color: #991b1b; }
+
+        .btn-action {
+            padding: 8px 16px;
+            border-radius: 10px;
+            font-size: 13px;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        #loadingOverlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255,255,255,0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+        }
+    </style>
+</head>
+<body>
+    <div id="loadingOverlay">
+        <div class="spinner-border text-primary" role="status"></div>
+    </div>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="logo">
+            <div class="logo-icon">
+                <i class="fas fa-stethoscope"></i>
+            </div>
+            <span>Dr. <span id="drName">Panel</span></span>
+        </div>
+        <nav>
+            <a href="#" class="active"><i class="fas fa-home"></i> Dashboard</a>
+            <a href="#" onclick="logout()"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            <a href="/" style="margin-top: 50px;"><i class="fas fa-arrow-left"></i> Patient Site</a>
+        </nav>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="header-top">
+            <div>
+                <h1 class="fw-bold m-0" id="welcomeMsg">Welcome, Doctor</h1>
+                <p class="text-muted m-0">Here is your appointment schedule for today</p>
+            </div>
+            <button class="btn btn-primary rounded-pill px-4" onclick="loadDashboardData()">
+                <i class="fas fa-sync-alt me-2"></i> Refresh
+            </button>
+        </div>
+
+        <!-- Stats -->
+        <div class="stat-grid">
+            <div class="stat-card">
+                <div>
+                    <h3 id="statTotal" class="fw-bold m-0">0</h3>
+                    <p class="text-muted m-0 small">Total Appointments</p>
+                </div>
+                <div class="stat-icon bg-primary"><i class="fas fa-calendar-check"></i></div>
+            </div>
+            <div class="stat-card">
+                <div>
+                    <h3 id="statPending" class="fw-bold m-0">0</h3>
+                    <p class="text-muted m-0 small">Pending Review</p>
+                </div>
+                <div class="stat-icon bg-warning"><i class="fas fa-hourglass-half"></i></div>
+            </div>
+            <div class="stat-card">
+                <div>
+                    <h3 id="statRevenue" class="fw-bold m-0">₹0</h3>
+                    <p class="text-muted m-0 small">Total Revenue</p>
+                </div>
+                <div class="stat-icon bg-success"><i class="fas fa-wallet"></i></div>
+            </div>
+        </div>
+
+        <!-- Settlement Summary -->
+        <div class="content-card mb-4" style="background: linear-gradient(135deg, #ffffff 0%, #f0f9ff 100%); border-left: 6px solid var(--primary);">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <h4 class="fw-bold m-0 text-primary"><i class="fas fa-file-invoice-dollar me-2"></i> Settlement Summary</h4>
+                <span class="badge bg-primary rounded-pill px-3">MediBook Partner</span>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="p-3 bg-white rounded-3 shadow-sm">
+                        <p class="text-muted small text-uppercase fw-bold mb-1">Gross Earnings</p>
+                        <h4 class="fw-bold mb-0" id="grossEarnings">₹0.00</h4>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="p-3 bg-white rounded-3 shadow-sm">
+                        <p class="text-muted small text-uppercase fw-bold mb-1">MediBook Charges (10%)</p>
+                        <h4 class="fw-bold mb-0 text-danger" id="medibookCharges">- ₹0.00</h4>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="p-3 bg-primary text-white rounded-3 shadow-sm">
+                        <p class="small text-uppercase fw-bold mb-1" style="opacity: 0.8;">Final Settlement</p>
+                        <h4 class="fw-bold mb-0" id="finalSettlement">₹0.00</h4>
+                    </div>
+                </div>
+            </div>
+            <p class="mt-3 small text-muted"><i class="fas fa-info-circle me-1"></i> Revenue is calculated based on all non-cancelled appointments. Cancelled bookings are automatically deducted from the settlement summary.</p>
+        </div>
+
+        <!-- Appointments Table -->
+        <div class="content-card">
+            <h4 class="fw-bold mb-4">Patient Appointments</h4>
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Patient</th>
+                            <th>Contact</th>
+                            <th>Schedule</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="appointmentsBody">
+                        <!-- Loaded via JS -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="doctor-dashboard.js"></script>
+</body>
+</html>
