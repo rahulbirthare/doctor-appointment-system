@@ -3,8 +3,11 @@ const nodemailer = require('nodemailer');
 
 exports.getStats = async (req, res) => {
     try {
+        console.log('Generating Dashboard Stats...');
+        
         const [totalRes] = await pool.query('SELECT COUNT(*) as count FROM appointments');
         const totalAppointments = totalRes[0].count;
+        console.log('- Total Appointments:', totalAppointments);
 
         const todayStr = new Date().toISOString().split('T')[0];
         const [todayRes] = await pool.query('SELECT COUNT(*) as count FROM appointments WHERE appt_date = ?', [todayStr]);
@@ -19,11 +22,10 @@ exports.getStats = async (req, res) => {
         const [upcomingRes] = await pool.query('SELECT COUNT(*) as count FROM appointments WHERE appt_date >= ?', [todayStr]);
         const upcomingAppointments = upcomingRes[0].count;
         
-        // Find popular doctor
+        // Find popular doctor (using name fallback)
         const [doctorStats] = await pool.query('SELECT doctor, COUNT(*) as count FROM appointments GROUP BY doctor ORDER BY count DESC LIMIT 1');
         const popularDoctor = doctorStats.length > 0 ? doctorStats[0] : { doctor: 'None', count: 0 };
 
-        // Real Chart Data
         // 1. Trend Data (Last 7 Days)
         const [trendData] = await pool.query(`
             SELECT appt_date as date, COUNT(*) as count 
@@ -33,12 +35,12 @@ exports.getStats = async (req, res) => {
             ORDER BY appt_date ASC
         `);
 
-        // 2. Specialty Data (Joined with doctors)
+        // 2. Specialty Data (Handle NULL doctor_id by looking up by name or using "General")
         const [specialtyData] = await pool.query(`
-            SELECT d.specialty, COUNT(*) as count 
+            SELECT COALESCE(d.specialty, 'General') as specialty, COUNT(*) as count 
             FROM appointments a
-            JOIN doctors d ON a.doctor_id = d.id
-            GROUP BY d.specialty
+            LEFT JOIN doctors d ON a.doctor_id = d.id
+            GROUP BY specialty
         `);
 
         // 3. Top Doctors Data
@@ -50,7 +52,7 @@ exports.getStats = async (req, res) => {
             LIMIT 5
         `);
 
-        // Global Financial Stats
+        // Financial Stats
         const [revenueRes] = await pool.query('SELECT SUM(amount) as totalGross FROM appointments WHERE status != "cancelled"');
         const totalGross = parseFloat(revenueRes[0].totalGross || 0);
         const medibookRevenue = totalGross * 0.10;
@@ -68,9 +70,10 @@ exports.getStats = async (req, res) => {
             totalDoctorSettlement
         };
         
-        console.log('Dashboard Stats Generated:', stats);
+        console.log('Stats calculation successful.');
         res.json({ success: true, stats });
     } catch (err) {
+        console.error('Stats Error:', err.message);
         res.status(500).json({ success: false, message: err.message });
     }
 };
