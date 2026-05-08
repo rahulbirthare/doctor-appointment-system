@@ -13,10 +13,10 @@ exports.getStats = async (req, res) => {
         const [todayRes] = await pool.query('SELECT COUNT(*) as count FROM appointments WHERE appt_date = ?', [todayStr]);
         const todayAppointments = todayRes[0].count;
 
-        const [confirmedRes] = await pool.query('SELECT COUNT(*) as count FROM appointments WHERE status = "confirmed"');
+        const [confirmedRes] = await pool.query('SELECT COUNT(*) as count FROM appointments WHERE status = \'confirmed\'');
         const confirmedAppointments = confirmedRes[0].count;
 
-        const [cancelledRes] = await pool.query('SELECT COUNT(*) as count FROM appointments WHERE status = "cancelled"');
+        const [cancelledRes] = await pool.query('SELECT COUNT(*) as count FROM appointments WHERE status = \'cancelled\'');
         const cancelledAppointments = cancelledRes[0].count;
 
         const [upcomingRes] = await pool.query('SELECT COUNT(*) as count FROM appointments WHERE appt_date >= ?', [todayStr]);
@@ -53,7 +53,7 @@ exports.getStats = async (req, res) => {
         `);
 
         // Financial Stats
-        const [revenueRes] = await pool.query('SELECT SUM(amount) as totalGross FROM appointments WHERE status != "cancelled"');
+        const [revenueRes] = await pool.query('SELECT SUM(amount) as totalGross FROM appointments WHERE status != \'cancelled\'');
         const totalGross = parseFloat(revenueRes[0].totalGross || 0);
         const medibookRevenue = totalGross * 0.10;
         const totalDoctorSettlement = totalGross - medibookRevenue;

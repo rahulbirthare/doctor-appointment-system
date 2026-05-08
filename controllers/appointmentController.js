@@ -14,7 +14,7 @@ exports.createAppointment = async (req, res) => {
 
         // Prevent double booking
         const [existing] = await pool.query(
-            'SELECT id FROM appointments WHERE doctor_id = ? AND appt_date = ? AND appt_time = ? AND status != "cancelled"',
+            'SELECT id FROM appointments WHERE doctor_id = ? AND appt_date = ? AND appt_time = ? AND status != \'cancelled\'',
             [doctorId, appt_date, appt_time]
         );
 
@@ -152,7 +152,7 @@ exports.checkBookedSlots = async (req, res) => {
     try {
         const { doctorId, date } = req.query;
         const [appointments] = await pool.query(
-            'SELECT appt_time FROM appointments WHERE doctor_id = ? AND appt_date = ? AND status != "cancelled"',
+            'SELECT appt_time FROM appointments WHERE doctor_id = ? AND appt_date = ? AND status != \'cancelled\'',
             [doctorId, date]
         );
         const bookedSlots = appointments.map(appt => {

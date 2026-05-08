@@ -57,7 +57,7 @@ exports.getDoctorStats = async (req, res) => {
         const doctorName = req.user.name;
 
         const [totalRes] = await pool.query('SELECT COUNT(*) as count FROM appointments WHERE doctor_id = ? OR doctor = ?', [doctorId, doctorName]);
-        const [pendingRes] = await pool.query('SELECT COUNT(*) as count FROM appointments WHERE (doctor_id = ? OR doctor = ?) AND status = "pending"', [doctorId, doctorName]);
+        const [pendingRes] = await pool.query('SELECT COUNT(*) as count FROM appointments WHERE (doctor_id = ? OR doctor = ?) AND status = \'pending\'', [doctorId, doctorName]);
         const [todayRes] = await pool.query(
             'SELECT COUNT(*) as count FROM appointments WHERE (doctor_id = ? OR doctor = ?) AND appt_date = CURDATE()',
             [doctorId, doctorName]
@@ -65,7 +65,7 @@ exports.getDoctorStats = async (req, res) => {
 
         // Revenue calculation: Sum of amount for non-cancelled appointments
         const [revenueRes] = await pool.query(
-            'SELECT SUM(amount) as totalRevenue FROM appointments WHERE (doctor_id = ? OR doctor = ?) AND status != "cancelled"',
+            'SELECT SUM(amount) as totalRevenue FROM appointments WHERE (doctor_id = ? OR doctor = ?) AND status != \'cancelled\'',
             [doctorId, doctorName]
         );
 
