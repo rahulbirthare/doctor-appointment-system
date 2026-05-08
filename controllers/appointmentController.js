@@ -30,68 +30,57 @@ exports.createAppointment = async (req, res) => {
             [req.user.id, doctorId || null, name, email, phone, doctorName, appt_date, appt_time, paymentId, 'confirmed', req.body.amount || 500.00]
         );
         
-        // Send email
-        try {
-            const transporter = nodemailer.createTransport({
-                service: "gmail",
-                auth: { user: process.env.EMAIL_USER, pass: process.env.EMAIL_PASS }
-            });
-            await transporter.sendMail({
-                from: `"MediBook Pro" <${process.env.EMAIL_USER}>`,
-                to: email,
-                subject: "Appointment Confirmed - MediBook Pro",
-                html: `
-                    <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #e2e8f0; border-radius: 12px;">
-                        <div style="text-align: center; margin-bottom: 20px;">
-                            <div style="background: #10b981; color: white; width: 60px; height: 60px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-size: 28px; margin: 0 auto 20px auto; line-height: 60px;">
-                                ✓
-                            </div>
-                            <h2 style="color: #10b981; margin: 0;">Appointment Confirmed!</h2>
+        // Send email in background (no await)
+        const transporter = nodemailer.createTransport({
+            service: "gmail",
+            auth: { user: process.env.EMAIL_USER, pass: process.env.EMAIL_PASS }
+        });
+
+        transporter.sendMail({
+            from: `"MediBook Pro" <${process.env.EMAIL_USER}>`,
+            to: email,
+            subject: "Appointment Confirmed - MediBook Pro",
+            html: `
+                <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #e2e8f0; border-radius: 12px;">
+                    <div style="text-align: center; margin-bottom: 20px;">
+                        <div style="background: #10b981; color: white; width: 60px; height: 60px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-size: 28px; margin: 0 auto 20px auto; line-height: 60px;">
+                            ✓
                         </div>
-                        
-                        <p>Hello <strong>${name}</strong>,</p>
-                        <p>Your appointment has been successfully booked with MediBook Pro.</p>
-                        
-                        <div style="background: #f0fdf4; padding: 20px; border-radius: 8px; margin: 20px 0;">
-                            <h3 style="color: #065f46; margin-top: 0;">Appointment Details</h3>
-                            <table style="width: 100%; border-collapse: collapse;">
-                                <tr>
-                                    <td style="padding: 8px 0; color: #64748b;"><strong>Reference ID:</strong></td>
-                                    <td style="padding: 8px 0;">MB${result.insertId.toString().padStart(4, '0')}</td>
-                                </tr>
-                                <tr>
-                                    <td style="padding: 8px 0; color: #64748b;"><strong>Doctor:</strong></td>
-                                    <td style="padding: 8px 0;">${doctorName}</td>
-                                </tr>
-                                <tr>
-                                    <td style="padding: 8px 0; color: #64748b;"><strong>Date:</strong></td>
-                                    <td style="padding: 8px 0;">${appt_date}</td>
-                                </tr>
-                                <tr>
-                                    <td style="padding: 8px 0; color: #64748b;"><strong>Time:</strong></td>
-                                    <td style="padding: 8px 0;">${appt_time}</td>
-                                </tr>
-                                <tr>
-                                    <td style="padding: 8px 0; color: #64748b;"><strong>Payment ID:</strong></td>
-                                    <td style="padding: 8px 0;">${paymentId || 'Prepaid'}</td>
-                                </tr>
-                                <tr>
-                                    <td style="padding: 8px 0; color: #64748b;"><strong>Amount Paid:</strong></td>
-                                    <td style="padding: 8px 0;">₹${req.body.amount || 500}</td>
-                                </tr>
-                            </table>
-                        </div>
-                        
-                        <p style="text-align: center; color: #64748b; font-size: 14px; margin-top: 30px;">
-                            Best regards,<br>
-                            <strong>The MediBook Pro Team</strong>
-                        </p>
+                        <h2 style="color: #10b981; margin: 0;">Appointment Confirmed!</h2>
                     </div>
-                `
-            });
-        } catch(e) {
-            console.error('Email error:', e);
-        }
+                    
+                    <p>Hello <strong>${name}</strong>,</p>
+                    <p>Your appointment has been successfully booked with MediBook Pro.</p>
+                    
+                    <div style="background: #f0fdf4; padding: 20px; border-radius: 8px; margin: 20px 0;">
+                        <h3 style="color: #065f46; margin-top: 0;">Appointment Details</h3>
+                        <table style="width: 100%; border-collapse: collapse;">
+                            <tr>
+                                <td style="padding: 8px 0; color: #64748b;"><strong>Reference ID:</strong></td>
+                                <td style="padding: 8px 0;">MB${result.insertId.toString().padStart(4, '0')}</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 8px 0; color: #64748b;"><strong>Doctor:</strong></td>
+                                <td style="padding: 8px 0;">${doctorName}</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 8px 0; color: #64748b;"><strong>Date:</strong></td>
+                                <td style="padding: 8px 0;">${appt_date}</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 8px 0; color: #64748b;"><strong>Time:</strong></td>
+                                <td style="padding: 8px 0;">${appt_time}</td>
+                            </tr>
+                        </table>
+                    </div>
+                    
+                    <p style="text-align: center; color: #64748b; font-size: 14px; margin-top: 30px;">
+                        Best regards,<br>
+                        <strong>The MediBook Pro Team</strong>
+                    </p>
+                </div>
+            `
+        }).catch(err => console.error('Background Email Error:', err));
 
         res.status(201).json({ success: true, appointmentId: result.insertId });
     } catch (err) {
