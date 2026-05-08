@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MediBook Pro - Complete Healthcare Solution</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <style>
         * {
@@ -66,12 +68,15 @@
                 transform: translateY(100vh) rotate(0deg);
                 opacity: 0;
             }
+
             10% {
                 opacity: 0.3;
             }
+
             90% {
                 opacity: 0.3;
             }
+
             100% {
                 transform: translateY(-100px) rotate(720deg);
                 opacity: 0;
@@ -207,7 +212,8 @@
             border-radius: 8px;
             font-weight: 600;
             font-size: 13px;
-            color: #4f46e5; /* Indigo Color */
+            color: #4f46e5;
+            /* Indigo Color */
             text-decoration: none;
             transition: var(--transition);
             display: inline-block;
@@ -236,8 +242,10 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(10, 25, 47, 0.2); /* Much lighter overlay */
-            backdrop-filter: blur(25px) saturate(180%); /* Stronger blur for "halka-halka" view */
+            background: rgba(10, 25, 47, 0.2);
+            /* Much lighter overlay */
+            backdrop-filter: blur(25px) saturate(180%);
+            /* Stronger blur for "halka-halka" view */
             z-index: 2000;
             display: none;
             align-items: center;
@@ -250,7 +258,8 @@
         }
 
         .auth-modal-content {
-            background: rgba(255, 255, 255, 0.85); /* Semi-transparent form */
+            background: rgba(255, 255, 255, 0.85);
+            /* Semi-transparent form */
             backdrop-filter: blur(10px);
             width: 90%;
             max-width: 420px;
@@ -263,8 +272,15 @@
         }
 
         @keyframes modalPop {
-            from { transform: scale(0.9) translateY(20px); opacity: 0; }
-            to { transform: scale(1) translateY(0); opacity: 1; }
+            from {
+                transform: scale(0.9) translateY(20px);
+                opacity: 0;
+            }
+
+            to {
+                transform: scale(1) translateY(0);
+                opacity: 1;
+            }
         }
 
         .auth-tabs {
@@ -488,7 +504,8 @@
             gap: 20px;
         }
 
-        .btn-primary, .btn-secondary {
+        .btn-primary,
+        .btn-secondary {
             padding: 18px 40px;
             border-radius: 14px;
             font-weight: 600;
@@ -555,13 +572,34 @@
             animation: floatBadge 4s ease-in-out infinite;
         }
 
-        .badge-1 { top: 10%; left: -5%; animation-delay: 0s; }
-        .badge-2 { bottom: 20%; left: -10%; animation-delay: 1s; }
-        .badge-3 { top: 25%; right: -5%; animation-delay: 2s; }
+        .badge-1 {
+            top: 10%;
+            left: -5%;
+            animation-delay: 0s;
+        }
+
+        .badge-2 {
+            bottom: 20%;
+            left: -10%;
+            animation-delay: 1s;
+        }
+
+        .badge-3 {
+            top: 25%;
+            right: -5%;
+            animation-delay: 2s;
+        }
 
         @keyframes floatBadge {
-            0%, 100% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-15px) rotate(2deg); }
+
+            0%,
+            100% {
+                transform: translateY(0) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(-15px) rotate(2deg);
+            }
         }
 
         .floating-badge i {
@@ -813,6 +851,7 @@
             0% {
                 transform: translateX(0);
             }
+
             100% {
                 transform: translateX(calc(-320px * 6 - 30px * 5));
             }
@@ -1125,7 +1164,8 @@
             transition: var(--transition);
         }
 
-        .booking-nav a:hover, .booking-nav a.active {
+        .booking-nav a:hover,
+        .booking-nav a.active {
             background: var(--primary);
             color: white;
         }
@@ -1365,9 +1405,20 @@
             font-size: 24px;
         }
 
-        .stat-1 .stat-icon-small { background: #dbeafe; color: var(--primary); }
-        .stat-2 .stat-icon-small { background: #f0f9ff; color: var(--secondary); }
-        .stat-3 .stat-icon-small { background: #f5f3ff; color: var(--accent); }
+        .stat-1 .stat-icon-small {
+            background: #dbeafe;
+            color: var(--primary);
+        }
+
+        .stat-2 .stat-icon-small {
+            background: #f0f9ff;
+            color: var(--secondary);
+        }
+
+        .stat-3 .stat-icon-small {
+            background: #f5f3ff;
+            color: var(--accent);
+        }
 
         .stat-card-small h3 {
             font-size: 32px;
@@ -1590,6 +1641,7 @@
                 opacity: 0;
                 transform: translateY(40px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -1601,6 +1653,7 @@
                 opacity: 0;
                 transform: translateX(40px);
             }
+
             to {
                 opacity: 1;
                 transform: translateX(0);
@@ -1612,6 +1665,7 @@
                 transform: translateY(50px);
                 opacity: 0;
             }
+
             to {
                 transform: translateY(0);
                 opacity: 1;
@@ -1619,28 +1673,37 @@
         }
 
         @keyframes pulse {
-            0%, 100% {
+
+            0%,
+            100% {
                 transform: scale(1);
             }
+
             50% {
                 transform: scale(1.05);
             }
         }
 
         @keyframes bounce {
-            0%, 100% {
+
+            0%,
+            100% {
                 transform: translateY(0);
             }
+
             50% {
                 transform: translateY(-10px);
             }
         }
 
         @keyframes successPulse {
-            0%, 100% {
+
+            0%,
+            100% {
                 transform: scale(1);
                 box-shadow: 0 15px 30px rgba(16, 185, 129, 0.3);
             }
+
             50% {
                 transform: scale(1.05);
                 box-shadow: 0 20px 40px rgba(16, 185, 129, 0.4);
@@ -1659,8 +1722,13 @@
         }
 
         @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
         }
 
         /* Scroll Progress */
@@ -1719,7 +1787,7 @@
             .hero-title {
                 font-size: 54px;
             }
-            
+
             .main-content {
                 grid-template-columns: 1fr;
             }
@@ -1730,52 +1798,52 @@
                 grid-template-columns: 1fr;
                 text-align: center;
             }
-            
+
             .hero-stats {
                 justify-content: center;
             }
-            
+
             .hero-buttons {
                 justify-content: center;
             }
-            
+
             .video-container {
                 position: relative;
                 bottom: 0;
                 right: 0;
                 margin: 40px auto 0;
             }
-            
+
             .timeline::before {
                 left: 30px;
             }
-            
+
             .timeline-item {
                 flex-direction: column;
             }
-            
+
             .timeline-content {
                 width: calc(100% - 60px);
                 margin-left: 60px !important;
                 margin-right: 0 !important;
             }
-            
+
             .timeline-item:nth-child(odd) .timeline-content::before,
             .timeline-item:nth-child(even) .timeline-content::before {
                 left: -70px;
             }
-            
+
             .booking-header {
                 flex-direction: column;
                 text-align: center;
                 gap: 20px;
             }
-            
+
             .booking-nav ul {
                 flex-wrap: wrap;
                 justify-content: center;
             }
-            
+
             .form-row {
                 grid-template-columns: 1fr;
             }
@@ -1785,41 +1853,43 @@
             .main-nav {
                 padding: 15px 20px;
             }
-            
+
             .nav-links {
                 display: none;
             }
-            
+
             .hero-title {
                 font-size: 42px;
             }
-            
+
             .section {
                 padding: 60px 20px;
             }
-            
+
             .section-title {
                 font-size: 36px;
             }
-            
+
             .hero-stats {
                 flex-direction: column;
                 gap: 20px;
             }
-            
+
             .hero-buttons {
                 flex-direction: column;
                 align-items: center;
             }
-            
+
             .booking-container {
                 padding: 20px;
             }
-            
-            .booking-card, .doctors-info-card, .history-card {
+
+            .booking-card,
+            .doctors-info-card,
+            .history-card {
                 padding: 25px;
             }
-            
+
             .stats-container-small {
                 grid-template-columns: 1fr;
             }
@@ -1829,28 +1899,30 @@
             .hero-title {
                 font-size: 32px;
             }
-            
+
             .hero-subtitle {
                 font-size: 16px;
             }
-            
-            .service-card, .doctor-card {
+
+            .service-card,
+            .doctor-card {
                 padding: 20px;
             }
-            
+
             .modal-content {
                 padding: 30px;
             }
         }
     </style>
 </head>
+
 <body>
     <!-- Background Animation -->
     <div class="bg-animation" id="bgAnimation"></div>
-    
+
     <!-- Scroll Progress -->
     <div class="scroll-progress" id="scrollProgress"></div>
-    
+
     <!-- Navigation -->
     <nav class="main-nav">
         <div class="nav-container">
@@ -1864,7 +1936,7 @@
             </div>
             <ul class="nav-links" id="nav-menu">
                 <li><a href="#home" class="active">Home</a></li>
-                
+
                 <li><a href="#specialities">Specialities</a></li>
                 <li><a href="doctors.html">Doctors</a></li>
                 <li><a href="#reviews">Reviews</a></li>
@@ -1876,7 +1948,8 @@
                     </div>
                 </li>
                 <li class="auth-user" style="display: none;"><a href="my-appointments.html">My Appointments</a></li>
-                <li class="auth-user" style="display: none;"><a href="#" onclick="logout()" class="nav-logout">Logout</a></li>
+                <li class="auth-user" style="display: none;"><a href="#" onclick="logout()"
+                        class="nav-logout">Logout</a></li>
             </ul>
             <a href="doctors.html" class="nav-cta" id="book-nav-btn">
                 <i class="fas fa-calendar-plus"></i> Book Appointment
@@ -1893,7 +1966,8 @@
                 </div>
                 <h1 class="hero-title" id="heroTitle">Healthcare That Comes To You</h1>
                 <p class="hero-subtitle">
-                    Book appointments with top specialists, access telemedicine services, and manage your health journey—all in one seamless platform.
+                    Book appointments with top specialists, access telemedicine services, and manage your health
+                    journey—all in one seamless platform.
                 </p>
                 <div class="hero-stats">
                     <div class="stat-item">
@@ -1919,8 +1993,9 @@
                 </div>
             </div>
             <div class="hero-visual">
-                <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Healthcare Professional" class="hero-image">
-                
+                <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+                    alt="Healthcare Professional" class="hero-image">
+
                 <!-- Floating Badges -->
                 <div class="floating-badge badge-1">
                     <i class="fas fa-clock"></i>
@@ -1929,7 +2004,7 @@
                         <p>Instant Consultation</p>
                     </div>
                 </div>
-                
+
                 <div class="floating-badge badge-2">
                     <i class="fas fa-user-check"></i>
                     <div class="badge-info">
@@ -1937,7 +2012,7 @@
                         <p>Verified Doctors</p>
                     </div>
                 </div>
-                
+
                 <div class="floating-badge badge-3">
                     <i class="fas fa-bolt"></i>
                     <div class="badge-info">
@@ -1953,41 +2028,50 @@
     </section>
 
     <!-- Doctors Section -->
-    
+
     <!-- Specialities Section -->
-    <section class="section specialities-section" id="specialities" style="background: linear-gradient(135deg, rgba(240, 249, 255, 0.5), rgba(224, 242, 254, 0.3));">
+    <section class="section specialities-section" id="specialities"
+        style="background: linear-gradient(135deg, rgba(240, 249, 255, 0.5), rgba(224, 242, 254, 0.3));">
         <div class="section-header">
             <span class="section-subtitle">OUR SPECIALITIES</span>
             <h2 class="section-title">High-Quality Care Services</h2>
-            <p class="section-description">Select a medical speciality to find the right doctor for your condition. Our experts are ready to assist you.</p>
+            <p class="section-description">Select a medical speciality to find the right doctor for your condition. Our
+                experts are ready to assist you.</p>
         </div>
-        <div class="services-container" style="max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; padding: 0 40px;">
-            <div class="service-card" onclick="window.location.href='doctors.html?specialty=Cardiologist'" style="cursor: pointer;">
+        <div class="services-container"
+            style="max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; padding: 0 40px;">
+            <div class="service-card" onclick="window.location.href='doctors.html?specialty=Cardiologist'"
+                style="cursor: pointer;">
                 <div class="service-icon"><i class="fas fa-heartbeat"></i></div>
                 <h3 class="service-title">Cardiology</h3>
                 <p class="service-description">Heart and cardiovascular system care.</p>
             </div>
-            <div class="service-card" onclick="window.location.href='doctors.html?specialty=Neurologist'" style="cursor: pointer;">
+            <div class="service-card" onclick="window.location.href='doctors.html?specialty=Neurologist'"
+                style="cursor: pointer;">
                 <div class="service-icon"><i class="fas fa-brain"></i></div>
                 <h3 class="service-title">Neurology</h3>
                 <p class="service-description">Expert care for neurological disorders.</p>
             </div>
-            <div class="service-card" onclick="window.location.href='doctors.html?specialty=Pediatrician'" style="cursor: pointer;">
+            <div class="service-card" onclick="window.location.href='doctors.html?specialty=Pediatrician'"
+                style="cursor: pointer;">
                 <div class="service-icon"><i class="fas fa-baby"></i></div>
                 <h3 class="service-title">Pediatrics</h3>
                 <p class="service-description">Comprehensive care for infants to teens.</p>
             </div>
-            <div class="service-card" onclick="window.location.href='doctors.html?specialty=Orthopedic'" style="cursor: pointer;">
+            <div class="service-card" onclick="window.location.href='doctors.html?specialty=Orthopedic'"
+                style="cursor: pointer;">
                 <div class="service-icon"><i class="fas fa-bone"></i></div>
                 <h3 class="service-title">Orthopedics</h3>
                 <p class="service-description">Treatment for bones, joints, and muscles.</p>
             </div>
-            <div class="service-card" onclick="window.location.href='doctors.html?specialty=Dermatologist'" style="cursor: pointer;">
+            <div class="service-card" onclick="window.location.href='doctors.html?specialty=Dermatologist'"
+                style="cursor: pointer;">
                 <div class="service-icon"><i class="fas fa-allergies"></i></div>
                 <h3 class="service-title">Dermatology</h3>
                 <p class="service-description">Advanced skin, hair, and nail care.</p>
             </div>
-            <div class="service-card" onclick="window.location.href='doctors.html?specialty=All'" style="cursor: pointer;">
+            <div class="service-card" onclick="window.location.href='doctors.html?specialty=All'"
+                style="cursor: pointer;">
                 <div class="service-icon"><i class="fas fa-user-md"></i></div>
                 <h3 class="service-title">View All Doctors</h3>
                 <p class="service-description">Browse our complete directory of specialists.</p>
@@ -2002,36 +2086,51 @@
             <h2 class="section-title">What Our Patients Say</h2>
             <p class="section-description">Real stories from our patients across India.</p>
         </div>
-        <div class="services-container" style="max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; padding: 0 40px;">
+        <div class="services-container"
+            style="max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; padding: 0 40px;">
             <div class="service-card" style="text-align: left;">
                 <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
-                    <div style="width: 50px; height: 50px; border-radius: 50%; background: var(--primary); color: white; display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: bold;">R</div>
+                    <div
+                        style="width: 50px; height: 50px; border-radius: 50%; background: var(--primary); color: white; display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: bold;">
+                        R</div>
                     <div>
                         <h4 style="font-size: 18px; color: var(--dark);">Rahul Sharma</h4>
-                        <div style="color: var(--warning);"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <div style="color: var(--warning);"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
                     </div>
                 </div>
-                <p style="color: var(--gray); font-style: italic;">"The appointment booking process was so smooth. I was able to consult the cardiologist without any long waits at the clinic. Highly recommended!"</p>
+                <p style="color: var(--gray); font-style: italic;">"The appointment booking process was so smooth. I was
+                    able to consult the cardiologist without any long waits at the clinic. Highly recommended!"</p>
             </div>
             <div class="service-card" style="text-align: left;">
                 <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
-                    <div style="width: 50px; height: 50px; border-radius: 50%; background: var(--accent); color: white; display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: bold;">P</div>
+                    <div
+                        style="width: 50px; height: 50px; border-radius: 50%; background: var(--accent); color: white; display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: bold;">
+                        P</div>
                     <div>
                         <h4 style="font-size: 18px; color: var(--dark);">Priya Patel</h4>
-                        <div style="color: var(--warning);"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+                        <div style="color: var(--warning);"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                        </div>
                     </div>
                 </div>
-                <p style="color: var(--gray); font-style: italic;">"Very seamless experience. The Razorpay integration makes payments very secure. I got an immediate confirmation email and prompt service from the staff."</p>
+                <p style="color: var(--gray); font-style: italic;">"Very seamless experience. The Razorpay integration
+                    makes payments very secure. I got an immediate confirmation email and prompt service from the
+                    staff."</p>
             </div>
             <div class="service-card" style="text-align: left;">
                 <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
-                    <div style="width: 50px; height: 50px; border-radius: 50%; background: var(--secondary); color: white; display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: bold;">A</div>
+                    <div
+                        style="width: 50px; height: 50px; border-radius: 50%; background: var(--secondary); color: white; display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: bold;">
+                        A</div>
                     <div>
                         <h4 style="font-size: 18px; color: var(--dark);">Arun Kumar</h4>
-                        <div style="color: var(--warning);"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <div style="color: var(--warning);"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
                     </div>
                 </div>
-                <p style="color: var(--gray); font-style: italic;">"Found the best pediatrician for my son here. The doctor profiles provide great detail and knowing their rating beforehand gave us peace of mind."</p>
+                <p style="color: var(--gray); font-style: italic;">"Found the best pediatrician for my son here. The
+                    doctor profiles provide great detail and knowing their rating beforehand gave us peace of mind."</p>
             </div>
         </div>
 
@@ -2041,7 +2140,8 @@
             <h3 style="font-size: 24px; color: var(--dark); margin-bottom: 10px;">Community Feedback</h3>
             <p style="color: var(--gray); margin-bottom: 30px;">Real experiences from our community of patients.</p>
         </div>
-        <div id="dynamicReviews" class="services-container" style="max-width: 1400px; margin: 0 auto 30px auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; padding: 0 40px;">
+        <div id="dynamicReviews" class="services-container"
+            style="max-width: 1400px; margin: 0 auto 30px auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; padding: 0 40px;">
             <div style="grid-column: 1 / -1; text-align: center; color: var(--gray); padding: 40px;">
                 <i class="fas fa-circle-notch fa-spin" style="font-size: 24px; margin-bottom: 10px;"></i>
                 <p>Loading patient stories...</p>
@@ -2049,12 +2149,15 @@
         </div>
 
         <!-- Write a Review Section (Logged in users only) -->
-        <div id="writeReviewSection" style="max-width: 800px; margin: 50px auto; padding: 40px; background: #f8fafc; border-radius: 24px; display: none; box-shadow: var(--shadow);">
-            <h3 style="text-align: center; margin-bottom: 30px; font-size: 24px; color: var(--dark);">Share Your Experience</h3>
+        <div id="writeReviewSection"
+            style="max-width: 800px; margin: 50px auto; padding: 40px; background: #f8fafc; border-radius: 24px; display: none; box-shadow: var(--shadow);">
+            <h3 style="text-align: center; margin-bottom: 30px; font-size: 24px; color: var(--dark);">Share Your
+                Experience</h3>
             <form id="reviewForm">
                 <div class="form-group" style="margin-bottom: 20px;">
                     <label style="display: block; margin-bottom: 10px; font-weight: 600;">Rating</label>
-                    <select id="reviewRating" required style="width: 100%; padding: 12px; border-radius: 10px; border: 1px solid #e2e8f0; font-family: inherit;">
+                    <select id="reviewRating" required
+                        style="width: 100%; padding: 12px; border-radius: 10px; border: 1px solid #e2e8f0; font-family: inherit;">
                         <option value="5">5 Stars - Excellent</option>
                         <option value="4">4 Stars - Good</option>
                         <option value="3">3 Stars - Average</option>
@@ -2064,9 +2167,11 @@
                 </div>
                 <div class="form-group" style="margin-bottom: 20px;">
                     <label style="display: block; margin-bottom: 10px; font-weight: 600;">Your Review</label>
-                    <textarea id="reviewComment" required placeholder="Write your feedback here..." style="width: 100%; height: 120px; padding: 12px; border-radius: 10px; border: 1px solid #e2e8f0; resize: none; font-family: inherit;"></textarea>
+                    <textarea id="reviewComment" required placeholder="Write your feedback here..."
+                        style="width: 100%; height: 120px; padding: 12px; border-radius: 10px; border: 1px solid #e2e8f0; resize: none; font-family: inherit;"></textarea>
                 </div>
-                <button type="submit" id="submitReviewBtn" class="btn-primary" style="width: 100%; justify-content: center; border: none; cursor: pointer;">Submit Review</button>
+                <button type="submit" id="submitReviewBtn" class="btn-primary"
+                    style="width: 100%; justify-content: center; border: none; cursor: pointer;">Submit Review</button>
             </form>
             <div id="reviewMsg" style="margin-top: 15px; text-align: center; font-weight: bold; display: none;"></div>
         </div>
@@ -2074,20 +2179,26 @@
 
     <!-- About Us Section -->
     <section class="section about-section" id="about" style="background: white;">
-        <div class="hero-container" style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; max-width: 1400px; margin: 0 auto;">
+        <div class="hero-container"
+            style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; max-width: 1400px; margin: 0 auto;">
             <div class="about-visual">
-                <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="About MediBook" style="width: 100%; border-radius: 24px; box-shadow: var(--shadow-lg);">
+                <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+                    alt="About MediBook" style="width: 100%; border-radius: 24px; box-shadow: var(--shadow-lg);">
             </div>
             <div class="about-content">
                 <span class="section-subtitle">ABOUT MEDIBOOK PRO</span>
                 <h2 class="section-title">Redefining the Future of Digital Healthcare</h2>
                 <p class="section-description" style="margin-bottom: 25px;">
-                    MediBook Pro is more than just a booking platform. We are a tech-driven healthcare ecosystem designed to bridge the gap between world-class medical expertise and patients who need it most.
+                    MediBook Pro is more than just a booking platform. We are a tech-driven healthcare ecosystem
+                    designed to bridge the gap between world-class medical expertise and patients who need it most.
                 </p>
                 <div class="service-features" style="margin-bottom: 30px;">
-                    <li><i class="fas fa-check-circle"></i> <strong>Mission:</strong> To make quality healthcare accessible to every household globally.</li>
-                    <li><i class="fas fa-check-circle"></i> <strong>Vision:</strong> Empowering individuals through data-driven health insights.</li>
-                    <li><i class="fas fa-check-circle"></i> <strong>Trust:</strong> Secure, encrypted transactions and verified specialists.</li>
+                    <li><i class="fas fa-check-circle"></i> <strong>Mission:</strong> To make quality healthcare
+                        accessible to every household globally.</li>
+                    <li><i class="fas fa-check-circle"></i> <strong>Vision:</strong> Empowering individuals through
+                        data-driven health insights.</li>
+                    <li><i class="fas fa-check-circle"></i> <strong>Trust:</strong> Secure, encrypted transactions and
+                        verified specialists.</li>
                 </div>
                 <a href="doctors.html" class="btn-secondary">Explore Our Doctors</a>
             </div>
@@ -2095,32 +2206,39 @@
     </section>
 
     <!-- Future Scope Section -->
-    <section class="section future-scope-section" id="future-scope" style="background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);">
+    <section class="section future-scope-section" id="future-scope"
+        style="background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);">
         <div class="section-header">
             <span class="section-subtitle">OUR ROADMAP</span>
             <h2 class="section-title">Innovations on the Horizon</h2>
-            <p class="section-description">We are constantly evolving to provide you with the most advanced healthcare tools. Here is what's coming next to MediBook Pro.</p>
+            <p class="section-description">We are constantly evolving to provide you with the most advanced healthcare
+                tools. Here is what's coming next to MediBook Pro.</p>
         </div>
-        <div class="services-container" style="max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; padding: 0 40px;">
+        <div class="services-container"
+            style="max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; padding: 0 40px;">
             <div class="service-card">
                 <div class="service-icon"><i class="fas fa-robot"></i></div>
                 <h3 class="service-title">AI Diagnostics</h3>
-                <p class="service-description">AI-powered symptom checkers and predictive health analysis to catch issues before they become serious.</p>
+                <p class="service-description">AI-powered symptom checkers and predictive health analysis to catch
+                    issues before they become serious.</p>
             </div>
             <div class="service-card">
                 <div class="service-icon"><i class="fas fa-watch"></i></div>
                 <h3 class="service-title">Wearable Integration</h3>
-                <p class="service-description">Sync your Apple Watch, Fitbit, or Garmin to provide your doctor with real-time vitals during consultations.</p>
+                <p class="service-description">Sync your Apple Watch, Fitbit, or Garmin to provide your doctor with
+                    real-time vitals during consultations.</p>
             </div>
             <div class="service-card">
                 <div class="service-icon"><i class="fas fa-file-medical"></i></div>
                 <h3 class="service-title">Blockchain Records</h3>
-                <p class="service-description">Your medical history secured on a private blockchain, ensuring 100% privacy and instant global portability.</p>
+                <p class="service-description">Your medical history secured on a private blockchain, ensuring 100%
+                    privacy and instant global portability.</p>
             </div>
             <div class="service-card">
                 <div class="service-icon"><i class="fas fa-language"></i></div>
                 <h3 class="service-title">Multi-Language Support</h3>
-                <p class="service-description">Breaking language barriers with real-time translation during video consultations for global access.</p>
+                <p class="service-description">Breaking language barriers with real-time translation during video
+                    consultations for global access.</p>
             </div>
         </div>
     </section>
@@ -2166,7 +2284,8 @@
             </div>
         </div>
         <div class="copyright">
-            <p>&copy; 2024 MediBook Pro. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+            <p>&copy; 2024 MediBook Pro. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of
+                    Service</a></p>
         </div>
     </footer>
 
@@ -2190,11 +2309,14 @@
                     <label>Password</label>
                     <input type="password" id="loginPassword" required placeholder="••••••••">
                 </div>
-                <button type="submit" class="btn-primary" style="width: 100%; border: none; cursor: pointer; margin-top: 10px;">Login to Account</button>
-                
+                <button type="submit" class="btn-primary"
+                    style="width: 100%; border: none; cursor: pointer; margin-top: 10px;">Login to Account</button>
+
                 <div style="margin-top: 25px; padding-top: 20px; border-top: 1px solid #eee; text-align: center;">
-                    <p style="font-size: 13px; color: var(--gray); margin-bottom: 10px;">Are you a medical professional?</p>
-                    <a href="doctor-login.html" class="nav-auth-btn" style="width: 100%; justify-content: center; background: rgba(16, 185, 129, 0.1); color: var(--secondary); border-color: rgba(16, 185, 129, 0.2);">
+                    <p style="font-size: 13px; color: var(--gray); margin-bottom: 10px;">Are you a medical professional?
+                    </p>
+                    <a href="doctor-login.html" class="nav-auth-btn"
+                        style="width: 100%; justify-content: center; background: rgba(16, 185, 129, 0.1); color: var(--secondary); border-color: rgba(16, 185, 129, 0.2);">
                         <i class="fas fa-user-md"></i> Doctor Login Portal
                     </a>
                 </div>
@@ -2218,7 +2340,8 @@
                     <label>Create Password</label>
                     <input type="password" id="signupPassword" required placeholder="••••••••">
                 </div>
-                <button type="submit" class="btn-primary" style="width: 100%; border: none; cursor: pointer; margin-top: 10px;">Create Account</button>
+                <button type="submit" class="btn-primary"
+                    style="width: 100%; border: none; cursor: pointer; margin-top: 10px;">Create Account</button>
             </form>
         </div>
     </div>
@@ -2252,11 +2375,11 @@
         // Animate elements on scroll
         function animateOnScroll() {
             const timelineItems = document.querySelectorAll('.timeline-item');
-            
+
             timelineItems.forEach(item => {
                 const itemTop = item.getBoundingClientRect().top;
                 const windowHeight = window.innerHeight;
-                
+
                 if (itemTop < windowHeight * 0.85) {
                     item.classList.add('visible');
                 }
@@ -2279,7 +2402,7 @@
             ];
 
             const doctorsScroll = document.getElementById('doctorsScroll');
-            
+
             // Create two sets of doctors for seamless scrolling
             for (let i = 0; i < 2; i++) {
                 doctors.forEach(doctor => {
@@ -2318,13 +2441,13 @@
                 { id: 'patientsCount', target: 50, suffix: 'K+' },
                 { id: 'successRate', target: 99, suffix: '%' }
             ];
-            
+
             counters.forEach(counter => {
                 const element = document.getElementById(counter.id);
                 const duration = 2000;
                 const step = Math.ceil(counter.target / (duration / 16));
                 let current = 0;
-                
+
                 const timer = setInterval(() => {
                     current += step;
                     if (current >= counter.target) {
@@ -2389,17 +2512,17 @@
 
         // Initialize backend integration
         function initializeBackend() {
-            if(document.getElementById('doctorsList')) { loadDoctors(); }
-            
+            if (document.getElementById('doctorsList')) { loadDoctors(); }
+
             // Set minimum date to today
             const today = new Date().toISOString().split('T')[0];
-            if(document.getElementById('date')) document.getElementById('date').min = today;
-            
+            if (document.getElementById('date')) document.getElementById('date').min = today;
+
             // Set default date to tomorrow
             const tomorrow = new Date();
             tomorrow.setDate(tomorrow.getDate() + 1);
-            if(document.getElementById('date')) document.getElementById('date').value = tomorrow.toISOString().split('T')[0];
-            
+            if (document.getElementById('date')) document.getElementById('date').value = tomorrow.toISOString().split('T')[0];
+
             // Test API connection
             testAPI();
         }
@@ -2420,15 +2543,15 @@
             try {
                 const response = await fetch('/api/doctors');
                 const data = await response.json();
-                
+
                 if (!data.success) {
                     throw new Error(data.message);
                 }
-                
+
                 doctorsList.innerHTML = '';
                 doctorsSelect.innerHTML = '<option value="">Choose a specialist</option>';
                 window.allDoctorsList = data.doctors;
-                
+
                 data.doctors.forEach(doctor => {
                     // Add to doctors list
                     const doctorItem = document.createElement('div');
@@ -2452,7 +2575,7 @@
                         </div>
                     `;
                     doctorsList.appendChild(doctorItem);
-                    
+
                     // Add to select dropdown
                     const option = document.createElement('option');
                     option.value = doctor.name;
@@ -2462,7 +2585,7 @@
 
                 // Update doctor count
                 totalDoctorsEl.textContent = data.doctors.length;
-                
+
             } catch (error) {
                 console.error('Error loading doctors:', error);
                 showError('Failed to load doctors. Please refresh the page.');
@@ -2488,7 +2611,7 @@
                         break;
                     }
                 }
-                
+
                 if (!found) {
                     const option = document.createElement('option');
                     option.value = name;
@@ -2496,13 +2619,13 @@
                     select.appendChild(option);
                     select.value = name;
                 }
-                
+
                 // Scroll to booking system
                 const bookingSystem = document.getElementById('booking-system');
                 if (bookingSystem) {
                     bookingSystem.scrollIntoView({ behavior: 'smooth' });
                 }
-                
+
                 // Trigger any change listeners
                 select.dispatchEvent(new Event('change'));
             }
@@ -2512,12 +2635,12 @@
         async function loadStats() {
             try {
                 const token = localStorage.getItem('token');
-                if(!token) return;
+                if (!token) return;
                 const response = await fetch('/api/appointments/all-appointments', {
                     headers: { 'Authorization': `Bearer ${token}` }
                 });
                 const data = await response.json();
-                
+
                 if (data.success) {
                     totalAppointmentsEl.textContent = data.count || data.appointments.length || 0;
                 }
@@ -2527,14 +2650,14 @@
         }
 
         // Load slots for the main booking page
-        window.loadIndexSlots = async function() {
+        window.loadIndexSlots = async function () {
             const doctorName = document.getElementById('doctor').value;
             const date = document.getElementById('date').value;
             const container = document.getElementById('indexSlotsContainer');
             const timeInput = document.getElementById('time');
-            
+
             if (!doctorName || !date) return;
-            
+
             // Find doctor ID
             const doctorObj = window.allDoctorsList ? window.allDoctorsList.find(d => d.name === doctorName) : null;
             if (!doctorObj) return;
@@ -2565,7 +2688,7 @@
                     btn.className = 'slot-btn';
                     btn.innerText = slot;
                     btn.disabled = isBooked;
-                    
+
                     if (isBooked) {
                         btn.style.background = '#f1f5f9';
                         btn.style.color = '#cbd5e1';
@@ -2612,94 +2735,95 @@
         };
 
         // Handle form submission with Razorpay and availability check
-        if (bookingForm) { bookingForm.addEventListener('submit', async function(e) {
-            e.preventDefault();
-            
-            const selectedTime = document.getElementById('time').value;
-            if (!selectedTime) {
-                alert("Please select a time slot.");
-                return;
-            }
+        if (bookingForm) {
+            bookingForm.addEventListener('submit', async function (e) {
+                e.preventDefault();
 
-            const submitBtn = document.getElementById('submitBtn');
-            const originalText = submitBtn.innerHTML;
-            
-            // Check auth
-            const token = localStorage.getItem('token');
-            if (!token) {
-                alert('Please login to book an appointment.');
-                window.location.href = 'login.html';
-                return;
-            }
-            
-            // Show loading
-            submitBtn.innerHTML = '<div class="loading"></div> Checking availability...';
-            submitBtn.disabled = true;
-            
-            const doctorNameStr = document.getElementById('doctor').value;
-            let selectedDoctorId = null;
-            if (window.allDoctorsList) {
-                const doc = window.allDoctorsList.find(d => d.name === doctorNameStr);
-                if (doc) selectedDoctorId = doc.id;
-            }
-
-            const appointmentData = {
-                name: document.getElementById('name').value,
-                email: document.getElementById('email').value,
-                phone: document.getElementById('phone').value,
-                doctor: doctorNameStr,
-                doctorId: selectedDoctorId,
-                appt_date: document.getElementById('date').value,
-                appt_time: selectedTime,
-                amount: 500
-            };
-            
-            try {
-                // 1. Double-check availability before payment
-                const checkRes = await fetch(`/api/appointments/check-slots?doctorId=${appointmentData.doctorId}&date=${appointmentData.appt_date}`);
-                const checkData = await checkRes.json();
-                if (checkData.success && checkData.bookedSlots.includes(appointmentData.appt_time)) {
-                    throw new Error("This slot was just booked by another patient. Please choose another slot.");
+                const selectedTime = document.getElementById('time').value;
+                if (!selectedTime) {
+                    alert("Please select a time slot.");
+                    return;
                 }
 
-                // 2. Create Razorpay order
-                submitBtn.innerHTML = '<div class="loading"></div> Processing payment...';
-                const orderRes = await fetch('/api/payment/create-order', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` },
-                    body: JSON.stringify({ amount: appointmentData.amount })
-                });
-                const orderData = await orderRes.json();
-                if (!orderData.success) throw new Error(orderData.message);
+                const submitBtn = document.getElementById('submitBtn');
+                const originalText = submitBtn.innerHTML;
 
-                const options = {
-                    key: "rzp_test_RoekH8EqD4imi6", 
-                    amount: orderData.order.amount,
-                    currency: "INR",
-                    name: "MediBook Pro",
-                    description: "Appointment Booking",
-                    order_id: orderData.order.id,
-                    handler: async function (response) {
-                        submitBtn.innerHTML = '<div class="loading"></div> Confirming...';
-                        
-                        const verifyRes = await fetch(`/api/payment/verify`, {
-                            method: 'POST',
-                            headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` },
-                            body: JSON.stringify(response)
-                        });
-                        const verifyData = await verifyRes.json();
-                        
-                        if (verifyData.success) {
-                            appointmentData.paymentId = response.razorpay_payment_id;
-                            const bookRes = await fetch(`/api/appointments`, {
+                // Check auth
+                const token = localStorage.getItem('token');
+                if (!token) {
+                    alert('Please login to book an appointment.');
+                    window.location.href = 'login.html';
+                    return;
+                }
+
+                // Show loading
+                submitBtn.innerHTML = '<div class="loading"></div> Checking availability...';
+                submitBtn.disabled = true;
+
+                const doctorNameStr = document.getElementById('doctor').value;
+                let selectedDoctorId = null;
+                if (window.allDoctorsList) {
+                    const doc = window.allDoctorsList.find(d => d.name === doctorNameStr);
+                    if (doc) selectedDoctorId = doc.id;
+                }
+
+                const appointmentData = {
+                    name: document.getElementById('name').value,
+                    email: document.getElementById('email').value,
+                    phone: document.getElementById('phone').value,
+                    doctor: doctorNameStr,
+                    doctorId: selectedDoctorId,
+                    appt_date: document.getElementById('date').value,
+                    appt_time: selectedTime,
+                    amount: 500
+                };
+
+                try {
+                    // 1. Double-check availability before payment
+                    const checkRes = await fetch(`/api/appointments/check-slots?doctorId=${appointmentData.doctorId}&date=${appointmentData.appt_date}`);
+                    const checkData = await checkRes.json();
+                    if (checkData.success && checkData.bookedSlots.includes(appointmentData.appt_time)) {
+                        throw new Error("This slot was just booked by another patient. Please choose another slot.");
+                    }
+
+                    // 2. Create Razorpay order
+                    submitBtn.innerHTML = '<div class="loading"></div> Processing payment...';
+                    const orderRes = await fetch('/api/payment/create-order', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` },
+                        body: JSON.stringify({ amount: appointmentData.amount })
+                    });
+                    const orderData = await orderRes.json();
+                    if (!orderData.success) throw new Error(orderData.message);
+
+                    const options = {
+                        key: "rzp_test_RoekH8EqD4imi6",
+                        amount: orderData.order.amount,
+                        currency: "INR",
+                        name: "MediBook Pro",
+                        description: "Appointment Booking",
+                        order_id: orderData.order.id,
+                        handler: async function (response) {
+                            submitBtn.innerHTML = '<div class="loading"></div> Confirming...';
+
+                            const verifyRes = await fetch(`/api/payment/verify`, {
                                 method: 'POST',
                                 headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` },
-                                body: JSON.stringify(appointmentData)
+                                body: JSON.stringify(response)
                             });
-                            const bookData = await bookRes.json();
-                            
-                            if (bookData.success) {
-                                document.getElementById('confirmationMessage').innerHTML = `
+                            const verifyData = await verifyRes.json();
+
+                            if (verifyData.success) {
+                                appointmentData.paymentId = response.razorpay_payment_id;
+                                const bookRes = await fetch(`/api/appointments`, {
+                                    method: 'POST',
+                                    headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` },
+                                    body: JSON.stringify(appointmentData)
+                                });
+                                const bookData = await bookRes.json();
+
+                                if (bookData.success) {
+                                    document.getElementById('confirmationMessage').innerHTML = `
                                     <strong>${appointmentData.name}</strong>, your appointment is confirmed!<br><br>
                                     <strong>Doctor:</strong> ${doctorNameStr}<br>
                                     <strong>Date:</strong> ${appointmentData.appt_date}<br>
@@ -2707,44 +2831,45 @@
                                     <strong>Payment ID:</strong> ${appointmentData.paymentId}<br><br>
                                     Your slot has been successfully secured.
                                 `;
-                                successModal.style.display = 'flex';
-                                bookingForm.reset();
-                                document.getElementById('indexSlotsContainer').innerHTML = '<p style="grid-column: 1/-1; text-align: center; color: var(--gray); font-size: 14px;">Please select doctor and date first</p>';
-                                loadStats();
-                                loadUserAppointments();
-                            } else {
-                                alert(bookData.message);
+                                    successModal.style.display = 'flex';
+                                    bookingForm.reset();
+                                    document.getElementById('indexSlotsContainer').innerHTML = '<p style="grid-column: 1/-1; text-align: center; color: var(--gray); font-size: 14px;">Please select doctor and date first</p>';
+                                    loadStats();
+                                    loadUserAppointments();
+                                } else {
+                                    alert(bookData.message);
+                                }
                             }
-                        }
-                    },
-                    theme: { color: "#2563eb" }
-                };
-                const rzp = new Razorpay(options);
-                rzp.open();
-            } catch (error) {
-                console.error('Booking error:', error);
-                alert(error.message || 'Something went wrong. Please try again.');
-            } finally {
-                submitBtn.innerHTML = originalText;
-                submitBtn.disabled = false;
-            }
-        }); }
+                        },
+                        theme: { color: "#2563eb" }
+                    };
+                    const rzp = new Razorpay(options);
+                    rzp.open();
+                } catch (error) {
+                    console.error('Booking error:', error);
+                    alert(error.message || 'Something went wrong. Please try again.');
+                } finally {
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                }
+            });
+        }
 
         // Load User appointments
         async function loadUserAppointments() {
             try {
                 const token = localStorage.getItem('token');
-                if(!token) return;
+                if (!token) return;
                 console.log('Loading user appointments...');
                 const response = await fetch(`${API_BASE_URL}/appointments/user`, {
                     headers: { 'Authorization': `Bearer ${token}` }
                 });
                 const data = await response.json();
-                
+
                 console.log('Appointments response:', data);
-                
+
                 historyBody.innerHTML = '';
-                
+
                 if (!data.success) {
                     historyBody.innerHTML = `
                         <tr>
@@ -2756,7 +2881,7 @@
                     `;
                     return;
                 }
-                
+
                 if (data.count === 0 || data.appointments.length === 0) {
                     historyBody.innerHTML = `
                         <tr>
@@ -2769,15 +2894,15 @@
                     `;
                     return;
                 }
-                
+
                 data.appointments.forEach(appointment => {
                     const row = document.createElement('tr');
                     const status = appointment.status || 'confirmed';
                     const statusClass = getStatusClass(status);
-                    
+
                     // Format phone number
                     const phone = formatPhoneNumber(appointment.phone);
-                    
+
                     // Create action buttons based on status
                     let actionButtons = '';
                     if (status === 'confirmed' || status === 'pending') {
@@ -2796,7 +2921,7 @@
                             </button>
                         `;
                     }
-                    
+
                     row.innerHTML = `
                         <td>MB${appointment.id.toString().padStart(4, '0')}</td>
                         <td>
@@ -2823,7 +2948,7 @@
                     `;
                     historyBody.appendChild(row);
                 });
-                
+
             } catch (error) {
                 console.error('Error loading appointments:', error);
                 historyBody.innerHTML = `
@@ -2843,9 +2968,9 @@
             if (!confirm('Are you sure you want to cancel this appointment?')) {
                 return;
             }
-            
+
             const reason = prompt('Please provide a reason for cancellation (optional):');
-            
+
             try {
                 const token = localStorage.getItem('token');
                 const response = await fetch(`${API_BASE_URL}/appointments/${id}/cancel`, {
@@ -2856,9 +2981,9 @@
                     },
                     body: JSON.stringify({ reason: reason || 'No reason provided' })
                 });
-                
+
                 const data = await response.json();
-                
+
                 if (data.success) {
                     showSuccess('Appointment cancelled successfully!');
                     // Reload appointments list
@@ -2878,7 +3003,7 @@
             if (!confirm('Mark this appointment as completed?')) {
                 return;
             }
-            
+
             try {
                 const token = localStorage.getItem('token');
                 const response = await fetch(`${API_BASE_URL}/appointments/${id}/status`, {
@@ -2889,9 +3014,9 @@
                     },
                     body: JSON.stringify({ status: 'completed' })
                 });
-                
+
                 const data = await response.json();
-                
+
                 if (data.success) {
                     showSuccess('Appointment marked as completed!');
                     // Reload appointments list
@@ -2910,16 +3035,16 @@
             if (!confirm('Are you sure you want to delete this appointment? This action cannot be undone.')) {
                 return;
             }
-            
+
             try {
                 const token = localStorage.getItem('token');
                 const response = await fetch(`${API_BASE_URL}/appointments/${id}`, {
                     method: 'DELETE',
                     headers: { 'Authorization': `Bearer ${token}` }
                 });
-                
+
                 const data = await response.json();
-                
+
                 if (data.success) {
                     showSuccess('Appointment deleted successfully!');
                     // Reload appointments list
@@ -2991,13 +3116,13 @@
             mainContent.style.display = 'none';
             historySection.style.display = 'block';
             updateNavActive(1);
-            
+
             // Scroll to booking section
             const bookingSystem = document.getElementById('booking-system');
             if (bookingSystem) {
                 bookingSystem.scrollIntoView({ behavior: 'smooth' });
             }
-            
+
             // Load user appointments automatically
             loadUserAppointments();
         }
@@ -3011,21 +3136,21 @@
         // Initialize navigation event listeners
         function setupBookingNavigation() {
             const navLinks = document.querySelectorAll('.booking-nav a');
-            navLinks[0].addEventListener('click', (e) => { 
-                e.preventDefault(); 
-                showBooking(); 
+            navLinks[0].addEventListener('click', (e) => {
+                e.preventDefault();
+                showBooking();
             });
-            navLinks[1].addEventListener('click', (e) => { 
-                e.preventDefault(); 
-                showHistory(); 
+            navLinks[1].addEventListener('click', (e) => {
+                e.preventDefault();
+                showHistory();
             });
-            navLinks[2].addEventListener('click', (e) => { 
-                e.preventDefault(); 
+            navLinks[2].addEventListener('click', (e) => {
+                e.preventDefault();
                 scrollToSection('doctors');
             });
-            navLinks[3].addEventListener('click', (e) => { 
-                e.preventDefault(); 
-                showContact(); 
+            navLinks[3].addEventListener('click', (e) => {
+                e.preventDefault();
+                showContact();
             });
         }
 
@@ -3034,15 +3159,15 @@
             try {
                 const response = await fetch('/api/reviews');
                 const data = await response.json();
-                
+
                 if (data.success && data.reviews.length > 0) {
                     const dynamicReviews = document.getElementById('dynamicReviews');
                     dynamicReviews.innerHTML = '';
-                    
+
                     data.reviews.forEach(review => {
                         const firstLetter = review.name.charAt(0).toUpperCase();
                         const stars = '★'.repeat(review.rating) + '☆'.repeat(5 - review.rating);
-                        
+
                         const reviewCard = document.createElement('div');
                         reviewCard.className = 'service-card';
                         reviewCard.style.textAlign = 'left';
@@ -3077,17 +3202,17 @@
 
         const reviewForm = document.getElementById('reviewForm');
         if (reviewForm) {
-            reviewForm.addEventListener('submit', async function(e) {
+            reviewForm.addEventListener('submit', async function (e) {
                 e.preventDefault();
                 const token = localStorage.getItem('token');
                 const btn = document.getElementById('submitReviewBtn');
                 const msg = document.getElementById('reviewMsg');
-                
+
                 if (!token) return;
 
                 btn.disabled = true;
                 btn.innerHTML = 'Submitting...';
-                
+
                 try {
                     const response = await fetch('/api/reviews', {
                         method: 'POST',
@@ -3100,7 +3225,7 @@
                             comment: document.getElementById('reviewComment').value
                         })
                     });
-                    
+
                     const data = await response.json();
                     if (data.success) {
                         msg.style.color = '#10b981';
@@ -3232,7 +3357,7 @@
         function updateActiveNavLink() {
             const sections = document.querySelectorAll('section[id]');
             const navLinks = document.querySelectorAll('.nav-links a');
-            
+
             let current = '';
             sections.forEach(section => {
                 const sectionTop = section.offsetTop;
@@ -3241,7 +3366,7 @@
                     current = section.getAttribute('id');
                 }
             });
-            
+
             navLinks.forEach(link => {
                 link.classList.remove('active');
                 if (link.getAttribute('href') === `#${current}`) {
@@ -3251,7 +3376,7 @@
         }
 
         // Initialize everything
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             loadDynamicReviews(); // Call first
             createBubbles();
             populateLandingDoctors();
@@ -3259,20 +3384,20 @@
             initializeBackend();
             setupBookingNavigation();
             addActionButtonStyles();
-            
+
             // Set up scroll events
             window.addEventListener('scroll', () => {
                 updateScrollProgress();
                 animateOnScroll();
                 updateActiveNavLink();
             });
-            
+
             // Initial animations
             animateOnScroll();
             updateScrollProgress();
-            
+
             // Close video modal on click outside
-            document.getElementById('videoModal').addEventListener('click', function(e) {
+            document.getElementById('videoModal').addEventListener('click', function (e) {
                 if (e.target === this) {
                     closeVideoModal();
                 }
@@ -3280,7 +3405,7 @@
         });
 
         // Add keyboard shortcuts
-        document.addEventListener('keydown', function(e) {
+        document.addEventListener('keydown', function (e) {
             if (e.key === 'Escape') {
                 closeModal();
                 closeVideoModal();
@@ -3309,7 +3434,7 @@
             <button id="medu-send-btn"><i class="fas fa-paper-plane"></i></button>
         </div>
     </div>
-    
+
     <button id="medu-toggle-btn" class="medu-toggle-btn">
         <i class="fas fa-comment-medical"></i>
     </button>
@@ -3331,7 +3456,9 @@
             box-shadow: 0 10px 25px rgba(37, 99, 235, 0.4);
             z-index: 9999;
             transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            display: flex; align-items: center; justify-content: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             animation: pulse 2s infinite;
         }
 
@@ -3358,7 +3485,7 @@
             pointer-events: none;
             transform: translateY(20px) scale(0.95);
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            border: 1px solid rgba(0,0,0,0.05);
+            border: 1px solid rgba(0, 0, 0, 0.05);
         }
 
         .medu-chatbot.active {
@@ -3444,7 +3571,7 @@
             background: white;
             color: var(--dark);
             border-bottom-left-radius: 4px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
         }
 
         .medu-message.user {
@@ -3464,7 +3591,7 @@
             color: var(--dark);
             align-self: flex-start;
             border-bottom-left-radius: 4px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
         }
 
         .typing-dot {
@@ -3475,18 +3602,31 @@
             animation: typingBounce 1.4s infinite ease-in-out both;
         }
 
-        .typing-dot:nth-child(1) { animation-delay: -0.32s; }
-        .typing-dot:nth-child(2) { animation-delay: -0.16s; }
+        .typing-dot:nth-child(1) {
+            animation-delay: -0.32s;
+        }
+
+        .typing-dot:nth-child(2) {
+            animation-delay: -0.16s;
+        }
 
         @keyframes typingBounce {
-            0%, 80%, 100% { transform: scale(0); }
-            40% { transform: scale(1); }
+
+            0%,
+            80%,
+            100% {
+                transform: scale(0);
+            }
+
+            40% {
+                transform: scale(1);
+            }
         }
 
         .medu-chatbot-input {
             padding: 15px 20px;
             background: white;
-            border-top: 1px solid rgba(0,0,0,0.05);
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
             display: flex;
             gap: 10px;
             align-items: center;
@@ -3528,7 +3668,7 @@
             background: var(--primary-dark);
             box-shadow: 0 4px 10px rgba(37, 99, 235, 0.2);
         }
-        
+
         #medu-send-btn:disabled {
             background: #cbd5e1;
             cursor: not-allowed;
@@ -3547,7 +3687,7 @@
             const inputField = document.getElementById('medu-input');
             const sendBtn = document.getElementById('medu-send-btn');
             const messagesContainer = document.getElementById('medu-messages');
-            
+
             let chatHistory = [];
 
             // Toggle logic
@@ -3575,7 +3715,7 @@
                 // Add user message
                 appendMessage(text, 'user');
                 inputField.value = '';
-                
+
                 chatHistory.push({ role: 'user', content: text });
 
                 // Show typing indicator
@@ -3588,12 +3728,12 @@
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify({ messages: chatHistory })
                     });
-                    
+
                     const data = await response.json();
-                    
+
                     // Remove typing indicator
                     typingObj.remove();
-                    
+
                     if (data.success) {
                         appendMessage(data.reply, 'bot', true);
                         chatHistory.push({ role: 'assistant', content: data.reply });
@@ -3612,14 +3752,14 @@
             function appendMessage(text, sender, parseMarkdown = false) {
                 const msgDiv = document.createElement('div');
                 msgDiv.className = `medu-message ${sender}`;
-                
+
                 if (parseMarkdown && window.marked) {
                     msgDiv.innerHTML = marked.parse(text);
                 } else {
                     const formattedText = text.replace(/\\n/g, '<br>');
                     msgDiv.innerHTML = formattedText;
                 }
-                
+
                 messagesContainer.appendChild(msgDiv);
                 messagesContainer.scrollTop = messagesContainer.scrollHeight;
             }
@@ -3646,11 +3786,11 @@
             const guestLinks = document.querySelectorAll('.auth-guest');
             const userLinks = document.querySelectorAll('.auth-user');
             const bookBtn = document.getElementById('book-nav-btn');
-            
+
             if (token && user) {
                 guestLinks.forEach(l => l.style.display = 'none');
                 userLinks.forEach(l => l.style.display = 'inline-block');
-                
+
                 // Show review form
                 const writeReviewSection = document.getElementById('writeReviewSection');
                 if (writeReviewSection) writeReviewSection.style.display = 'block';
@@ -3660,39 +3800,39 @@
                     navMenu.insertAdjacentHTML('beforeend', '<li class="auth-user"><a href="admin.html">Admin Panel</a></li>');
                 }
                 if (bookBtn) bookBtn.href = '#booking-system';
-                
+
                 // Auto-fill user details and hide fields
                 const nameInput = document.getElementById('name');
                 const emailInput = document.getElementById('email');
                 if (nameInput) {
                     nameInput.value = user.name;
-                    if(nameInput.closest('.form-group')) nameInput.closest('.form-group').style.display = 'none';
-                    else if(nameInput.closest('.input-group')) nameInput.closest('.input-group').style.display = 'none';
+                    if (nameInput.closest('.form-group')) nameInput.closest('.form-group').style.display = 'none';
+                    else if (nameInput.closest('.input-group')) nameInput.closest('.input-group').style.display = 'none';
                     else nameInput.style.display = 'none';
                 }
                 if (emailInput) {
                     emailInput.value = user.email;
                     emailInput.readOnly = true; // Prevent changing email
-                    if(emailInput.closest('.form-group')) emailInput.closest('.form-group').style.display = 'none';
-                    else if(emailInput.closest('.input-group')) emailInput.closest('.input-group').style.display = 'none';
+                    if (emailInput.closest('.form-group')) emailInput.closest('.form-group').style.display = 'none';
+                    else if (emailInput.closest('.input-group')) emailInput.closest('.input-group').style.display = 'none';
                     else emailInput.style.display = 'none';
                 }
-                
+
                 // Welcome text in hero
                 const heroTitle = document.getElementById('heroTitle');
                 if (heroTitle) {
                     heroTitle.innerHTML = `Welcome <span>${user.name}</span>,<br>Healthcare That Comes To You`;
                 }
-                
+
                 // Load user appointments
-                if(document.getElementById('historyBody')) {
+                if (document.getElementById('historyBody')) {
                     loadUserAppointments();
                 }
             } else {
                 if (bookBtn) bookBtn.href = 'login.html';
-                
+
                 // Clear history if not logged in
-                if(document.getElementById('historyBody')) {
+                if (document.getElementById('historyBody')) {
                     document.getElementById('historyBody').innerHTML = `
                         <tr>
                             <td colspan="7" style="text-align: center; padding: 40px;">
@@ -3766,7 +3906,7 @@
                     const user = data.user || data.doctor || data.admin;
                     localStorage.setItem('user', JSON.stringify(user));
                     localStorage.setItem('role', user.role || 'patient');
-                    
+
                     // Redirect based on role returned from server
                     if (user.role === 'admin') window.location.href = 'admin.html';
                     else if (user.role === 'doctor') window.location.href = 'doctor-dashboard.html';
@@ -3817,4 +3957,5 @@
         }
     </script>
 </body>
+
 </html>
